@@ -22,7 +22,7 @@ export default function Card(props) {
           type="checkbox"
           onChange={checker}
         />
-        <p style={checkbox ? styles : {}} className="font-medium text-2xl">
+        <p style={checkbox ? styles : {}} className="font-medium text-xl">
           {props.text}
         </p>
       </div>
