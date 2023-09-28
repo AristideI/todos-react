@@ -1,11 +1,33 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Card from "./components/Card";
 
 function App() {
-  let [todos, setTodos] = useState(["Todo 1", "Todo 2"]);
+  let savedTodos = localStorage.getItem("todos");
+  let initialTodos = savedTodos ? JSON.parse(savedTodos) : [];
+  let [todos, setTodos] = useState(initialTodos);
   let [todo, setTodo] = useState("");
-  let mapped = todos.map((elt) => <Card key={elt} text={elt} />);
+  let mapped = todos.map((elt, ind) => (
+    <Card key={elt} text={elt} checker={true} id={ind} delete={handleDelete} />
+  ));
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  function handleDelete(e) {
+    console.log(typeof e.target.name);
+    setTodos(
+      todos.filter((elt, ind) => {
+        if (ind == e.target.name) {
+          return false;
+        } else {
+          return true;
+        }
+      })
+    );
+  }
   console.log(todo);
   function handleSubmit(e) {
     e.preventDefault();
