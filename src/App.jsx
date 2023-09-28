@@ -28,11 +28,12 @@ function App() {
       })
     );
   }
-  console.log(todo);
   function handleSubmit(e) {
     e.preventDefault();
-    setTodos([...todos, todo]);
-    setTodo("");
+    if (todo) {
+      setTodos([...todos, todo]);
+      setTodo("");
+    }
   }
   function handleChange(e) {
     setTodo(e.target.value);

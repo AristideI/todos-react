@@ -18,11 +18,14 @@ export default function Card(props) {
     <section className="flex justify-between items-center w-full border-2 border-green-600 px-4 py-2 rounded-xl">
       <div className="flex items-center gap-4">
         <input
-          className="w-6 h-6 bg-slate-800"
+          className="w-6 h-6 border border-teal-500 bg-slate-800"
           type="checkbox"
           onChange={checker}
         />
-        <p style={checkbox ? styles : {}} className="font-medium text-xl">
+        <p
+          style={checkbox ? styles : {}}
+          className="font-medium text-xl font-serif"
+        >
           {props.text}
         </p>
       </div>
