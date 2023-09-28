@@ -4,7 +4,7 @@ import "./App.css";
 import Card from "./components/Card";
 
 function App() {
-  localStorage.removeItem("todos");
+  // localStorage.removeItem("todos");
   let savedTodos = localStorage.getItem("todos");
   let initialTodos = savedTodos ? JSON.parse(savedTodos) : [];
   let [todos, setTodos] = useState(initialTodos);
